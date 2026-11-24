@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://zeustheprophet.com/</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://zeustheprophet.com/podcast</loc><lastmod>2026-11-22</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://zeustheprophet.com/links.html</loc><lastmod>2026-11-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://zeustheprophet.com/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://zeustheprophet.com/assets/rise-of-the-prophet-cover.jpg</image:loc>
+      <image:title>The Rise of the Prophet EP cover</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://zeustheprophet.com/assets/unity-cover-official.jpg</image:loc>
+      <image:title>Unity single cover, featuring NJE and Mez</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zeustheprophet.com/podcast</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zeustheprophet.com/assets/zeus-podcast-1024.jpg</image:loc>
+      <image:title>The Zeus Podcast cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zeustheprophet.com/links.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
