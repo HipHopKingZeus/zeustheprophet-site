@@ -129,7 +129,7 @@
       <a href="index.html#music">Music</a>
       <a href="index.html#unity">Unity</a>
       <a href="podcast.html">Podcast</a>
-      <a href="https://www.instagram.com/theprophetscircle/" target="_blank" rel="noopener">Prophet's Circle</a>
+      <a href="https://www.instagram.com/theprophetscircle/" target="_blank" rel="noopener">The Prophet's Circle</a>
       <a href="index.html#membership">Membership</a>
       <a class="btn" href="index.html#music"><span class="lg">Hear the music</span><span class="sm">Music</span></a>
     </nav>
@@ -139,7 +139,7 @@
     <div class="wrap">
       <a href="index.html#music">Music</a>
       <a href="podcast.html">The Zeus Podcast</a>
-      <a href="https://www.instagram.com/theprophetscircle/" target="_blank" rel="noopener">Prophet's Circle</a>
+      <a href="https://www.instagram.com/theprophetscircle/" target="_blank" rel="noopener">The Prophet's Circle</a>
       <a href="index.html#membership">Membership</a>
     </div>
   </div>
@@ -275,45 +275,7 @@
       <div class="head reveal">
         <span class="eyebrow">Membership</span>
         <h2>Go deeper with the Prophet</h2>
-        <p class="sub">Three ways to back the music, the podcast and the Circle, and get closer to all of it. Memberships open soon. Join the waitlist and you will be first in.</p>
-      </div>
-      <div class="tiers reveal">
-        <article class="tier">
-          <span class="chip">TIER ONE</span>
-          <h3>Follower</h3>
-          <p class="tl">Stay close to the work</p>
-          <ul>
-            <li>Early access to new Zeus Podcast episodes</li>
-            <li>First listen to new music before it drops</li>
-            <li>Members only updates from Zeus</li>
-          </ul>
-          <a class="btn ghost" href="index.html#waitlist" data-tier="Follower">Join the waitlist</a>
-        </article>
-        <article class="tier">
-          <span class="chip">TIER TWO</span>
-          <h3>Disciple</h3>
-          <p class="tl">Get behind the scenes</p>
-          <ul>
-            <li class="all">Everything in Follower</li>
-            <li>Behind the scenes from the studio and the podcast set</li>
-            <li>Monthly live Q and A with Zeus</li>
-            <li>Vote on guests and topics for the podcast</li>
-          </ul>
-          <a class="btn ghost" href="index.html#waitlist" data-tier="Disciple">Join the waitlist</a>
-        </article>
-        <article class="tier top">
-          <span class="chip">FULL ACCESS</span>
-          <h3>Inner Circle</h3>
-          <p class="tl">Closest to the source</p>
-          <ul>
-            <li class="all">Everything in Disciple</li>
-            <li>A private space inside the Prophet's Circle</li>
-            <li>Direct access to Zeus</li>
-            <li>Your name in the credits of new releases</li>
-            <li>Priority on merch, events and shows</li>
-          </ul>
-          <a class="btn" href="index.html#waitlist" data-tier="Inner Circle">Join the waitlist</a>
-        </article>
+        <p class="sub">Memberships open soon. Join the waitlist and you will be first in.</p>
       </div>
 
       <div class="wl reveal" id="waitlist">
@@ -322,14 +284,6 @@
         <form id="wl-form" novalidate>
           <label>First name<input name="name" autocomplete="given-name" maxlength="100" required></label>
           <label>Email<input name="email" type="email" autocomplete="email" maxlength="200" required></label>
-          <label class="full">Tier you are interested in
-            <select name="tier" id="wl-tier">
-              <option>Follower</option>
-              <option>Disciple</option>
-              <option>Inner Circle</option>
-              <option>Not sure yet</option>
-            </select>
-          </label>
           <div class="hp" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
           <button class="btn" type="submit">Join the waitlist</button>
           <p class="msg" id="wl-msg" role="status" aria-live="polite"></p>
@@ -364,7 +318,7 @@
       <a href="index.html#music">Music</a>
       <a href="podcast.html">The Zeus Podcast</a>
       <a href="links.html">All links</a>
-      <a href="https://www.instagram.com/theprophetscircle/" target="_blank" rel="noopener">Prophet's Circle</a>
+      <a href="https://www.instagram.com/theprophetscircle/" target="_blank" rel="noopener">The Prophet's Circle</a>
       <a href="index.html#membership">Membership</a>
       <a href="https://iqualityonline.com/" target="_blank" rel="noopener">Books and guides</a>
       <a href="https://open.spotify.com/artist/5orsEGpptFpSh7wBzyQkyI" target="_blank" rel="noopener">Spotify</a>
@@ -424,10 +378,7 @@
 <script>
 (function(){
   var form = document.getElementById('wl-form'); if (!form) return;
-  var sel = document.getElementById('wl-tier'), msg = document.getElementById('wl-msg'), btn = form.querySelector('button');
-  document.querySelectorAll('[data-tier]').forEach(function(a){
-    a.addEventListener('click', function(){ sel.value = a.getAttribute('data-tier'); });
-  });
+  var msg = document.getElementById('wl-msg'), btn = form.querySelector('button');
   function say(t, cls){ msg.className = 'msg ' + (cls||''); msg.innerHTML = t; }
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -440,8 +391,8 @@
        email app addressed to the same address the I.Quality Online
        waitlist uses, with the details prefilled. Nothing is sent silently. */
     if (form.website.value) { say('Thanks, ' + name.replace(/[<>&"]/g,'') + '. We will be in touch.', 'ok'); form.reset(); return; }
-    var subject = encodeURIComponent('Prophet\'s Circle waitlist: ' + sel.value);
-    var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nTier: ' + sel.value);
+    var subject = encodeURIComponent('The Prophet\'s Circle waitlist');
+    var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email);
     window.location.href = 'mailto:admin@iqualityonline.com?subject=' + subject + '&body=' + body;
     say('Your email app should open with your waitlist details filled in. Just press send, and you are on the list, ' + name.replace(/[<>&"]/g,'') + '. If it did not open, message us on <a href="https://www.instagram.com/theprophetscircle/" target="_blank" rel="noopener">the Prophet\'s Circle</a> and we will add you.', 'ok');
     form.reset();
