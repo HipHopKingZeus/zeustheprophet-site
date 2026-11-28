@@ -313,25 +313,6 @@
           <button class="btn" type="button" disabled>Coming soon</button>
         </article>
       </div>
-
-      <div class="wl reveal" id="waitlist">
-        <h3>Join the waitlist</h3>
-        <p class="s">Be first in when memberships open. No spam, just the word when it drops.</p>
-        <form id="wl-form" method="post" action="https://zeustheprophet.com/api/waitlist" novalidate>
-          <label>First name<input name="name" autocomplete="given-name" maxlength="100" required></label>
-          <label>Email<input name="email" type="email" autocomplete="email" maxlength="200" required></label>
-          <label class="full">What you are interested in
-            <select name="tier" id="wl-tier">
-              <option>Disciple</option>
-              <option>Inner Circle</option>
-              <option>Not sure yet</option>
-            </select>
-          </label>
-          <div class="hp" aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
-          <button class="btn" type="submit">Join the waitlist</button>
-          <p class="msg" id="wl-msg" role="status" aria-live="polite"></p>
-        </form>
-      </div>
     </div>
   </section>
   <section class="block podcast" id="podcast">
@@ -416,44 +397,6 @@
       if (es[0].isIntersecting){ o.disconnect(); whenIdle(loadThree); }
     }, {threshold:0}).observe(hero);
   } else { whenIdle(loadThree); }
-})();
-</script>
-<script>
-(function(){
-  var form = document.getElementById('wl-form'); if (!form) return;
-  var sel = document.getElementById('wl-tier'), msg = document.getElementById('wl-msg'), btn = form.querySelector('button');
-  var nameEl = form.querySelector('input[name="name"]'), emailEl = form.querySelector('input[name="email"]'), hpEl = form.querySelector('input[name="website"]');
-  function say(t, cls){ msg.className = 'msg ' + (cls||''); msg.innerHTML = t; }
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var name = nameEl.value.trim(), email = emailEl.value.trim();
-    if (!name) { say('Please add your first name.', 'err'); nameEl.focus(); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say('Please check your email address.', 'err'); emailEl.focus(); return; }
-    /* Signups post as JSON to the Inbox King worker at
-       https://zeustheprophet.com/api/waitlist, which stores each entry in
-       the inbox-king-waitlist KV store. Field names match the worker:
-       name, email, tier, and the website honeypot. */
-    btn.disabled = true;
-    say('Joining the waitlist...', '');
-    fetch('https://zeustheprophet.com/api/waitlist', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, email: email, tier: sel.value, website: hpEl.value })
-    }).then(function(r){
-      return r.json().catch(function(){ return { ok: r.ok }; });
-    }).then(function(d){
-      btn.disabled = false;
-      if (d && d.ok) {
-        say('You are on the list, ' + name.replace(/[<>&"]/g,'') + '. We will be in touch when the doors open.', 'ok');
-        form.reset();
-      } else {
-        say('Something went wrong. Please try again, or message us on <a href="https://www.instagram.com/theprophetscircle/" target="_blank" rel="noopener">the Prophet\'s Circle</a> and we will add you.', 'err');
-      }
-    }).catch(function(){
-      btn.disabled = false;
-      say('Something went wrong. Please try again, or message us on <a href="https://www.instagram.com/theprophetscircle/" target="_blank" rel="noopener">the Prophet\'s Circle</a> and we will add you.', 'err');
-    });
-  });
 })();
 </script>
 <script>
