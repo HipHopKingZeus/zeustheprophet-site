@@ -218,11 +218,9 @@
         </a>
         </div>
       </div>
-      <div class="embed reveal">
-        <div class="fac" data-src="https://open.spotify.com/embed/artist/5orsEGpptFpSh7wBzyQkyI?utm_source=generator&amp;theme=0" data-title="Zeus The Prophet on Spotify" data-h="452">
-          <button type="button" class="fac-btn" aria-label="Play Zeus The Prophet on Spotify"><span class="fac-z" aria-hidden="true"></span><span class="fac-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span class="fac-t">Play Zeus The Prophet on Spotify</span></button>
-          <a class="fac-alt" href="https://open.spotify.com/artist/5orsEGpptFpSh7wBzyQkyI" target="_blank" rel="noopener">Open in a new tab</a>
-        </div>
+      <div class="embed reveal" id="player">
+        <div id="ep-embed" aria-label="The Rise of the Prophet EP player on Spotify"></div>
+        <noscript><p><a href="https://open.spotify.com/album/1mZxUo0ZcYoWHd3pQpCNiK" target="_blank" rel="noopener">Play The Rise of the Prophet on Spotify</a></p></noscript>
       </div>
     </div>
   </section>
@@ -494,5 +492,38 @@
   });
 })();
 </script>
+<script>
+(function(){
+  var controller = null, ready = false, wantPlay = false;
+  function tryPlay(){ if (ready && controller) { try { controller.play(); } catch(e){} } }
+  window.onSpotifyIframeApiReady = function(IFrameAPI){
+    var el = document.getElementById('ep-embed'); if (!el) return;
+    IFrameAPI.createController(el, { uri: 'spotify:album:1mZxUo0ZcYoWHd3pQpCNiK', width: '100%', height: '352' }, function(c){
+      controller = c; ready = true; if (wantPlay) tryPlay();
+    });
+  };
+  function playEP(){
+    var p = document.getElementById('player');
+    if (p) p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (ready) { tryPlay(); } else { wantPlay = true; setTimeout(tryPlay, 1500); }
+  }
+  document.querySelectorAll('a.hear').forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); playEP(); });
+  });
+  setTimeout(function(){
+    var el = document.getElementById('ep-embed');
+    if (!ready && el && !el.querySelector('iframe')) {
+      var i = document.createElement('iframe');
+      i.src = 'https://open.spotify.com/embed/album/1mZxUo0ZcYoWHd3pQpCNiK?utm_source=generator&theme=0';
+      i.title = 'The Rise of the Prophet on Spotify';
+      i.width = '100%'; i.height = '352';
+      i.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture');
+      i.setAttribute('loading', 'lazy');
+      el.appendChild(i);
+    }
+  }, 5000);
+})();
+</script>
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 </body>
 </html>
