@@ -525,5 +525,21 @@
 })();
 </script>
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+<!-- Prophet Assistant (Vapi web widget) — staging build 28 Nov 2026, not deployed -->
+<script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
+<vapi-widget
+  public-key="96455fe9-7bf5-4b5d-8993-3a8f022c2645"
+  assistant-id="020b370a-a024-4cd3-b1e5-25da22267af8"
+  mode="hybrid"
+  theme="dark"
+  position="bottom-right"
+  radius="large"
+  base-color="#05070d"
+  accent-color="#F3D58A"
+  button-base-color="#0070E0"
+  button-accent-color="#FFFFFF"
+  main-label="The Prophet's AI Assistant"
+  empty-chat-message="Welcome. Ask me anything about the music, The Zeus Podcast, the books or the tour."
+></vapi-widget>
 </body>
 </html>
